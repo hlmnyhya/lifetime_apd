@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lifetime_apdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="apd">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAMA_APD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GAMBAR_APD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="peminjamen" Relationship="Self.FK__peminjama__id_ap__5165187F" FromRole="apd" ToRole="peminjaman" />
+    <NavigationProperty Name="penerimaans" Relationship="Self.FK__penerimaa__id_ap__48CFD27E" FromRole="apd" ToRole="penerimaan" />
+    <NavigationProperty Name="permintaans" Relationship="Self.FK__permintaa__id_ap__4CA06362" FromRole="apd" ToRole="permintaan" />
+  </EntityType>
+  <EntityType Name="karyawan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_USERS" Type="Int32" />
+    <Property Name="ID_UNIT" Type="Int32" />
+    <Property Name="NIP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NAMA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="JABATAN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="JENIS_KELAMIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TANGGAL_LAHIR" Type="DateTime" Precision="0" />
+    <Property Name="ALAMAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS_PENERIMAAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="unit" Relationship="Self.FK__karyawan__id_uni__45F365D3" FromRole="karyawan" ToRole="unit" />
+    <NavigationProperty Name="user" Relationship="Self.FK__karyawan__id_use__44FF419A" FromRole="karyawan" ToRole="users" />
+    <NavigationProperty Name="peminjamen" Relationship="Self.FK__peminjama__id_ka__5070F446" FromRole="karyawan" ToRole="peminjaman" />
+    <NavigationProperty Name="penerimaans" Relationship="Self.FK__penerimaa__id_ka__49C3F6B7" FromRole="karyawan" ToRole="penerimaan" />
+    <NavigationProperty Name="permintaans" Relationship="Self.FK__permintaa__id_ka__4D94879B" FromRole="karyawan" ToRole="permintaan" />
+  </EntityType>
+  <EntityType Name="peminjaman">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_KARYAWAN" Type="Int32" />
+    <Property Name="ID_APD" Type="Int32" />
+    <Property Name="TANGGAL_PINJAM" Type="DateTime" Precision="0" />
+    <Property Name="TANGGAL_KEMBALI" Type="DateTime" Precision="0" />
+    <Property Name="JUMLAH" Type="Int32" />
+    <Property Name="STATUS_PEMINJAMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="apd" Relationship="Self.FK__peminjama__id_ap__5165187F" FromRole="peminjaman" ToRole="apd" />
+    <NavigationProperty Name="karyawan" Relationship="Self.FK__peminjama__id_ka__5070F446" FromRole="peminjaman" ToRole="karyawan" />
+  </EntityType>
+  <EntityType Name="penerimaan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_APD" Type="Int32" />
+    <Property Name="ID_KARYAWAN" Type="Int32" />
+    <Property Name="TANGGAL_PENERIMAAN" Type="DateTime" Precision="0" />
+    <Property Name="TOTAL_PENERIMAAN" Type="Int32" />
+    <NavigationProperty Name="apd" Relationship="Self.FK__penerimaa__id_ap__48CFD27E" FromRole="penerimaan" ToRole="apd" />
+    <NavigationProperty Name="karyawan" Relationship="Self.FK__penerimaa__id_ka__49C3F6B7" FromRole="penerimaan" ToRole="karyawan" />
+  </EntityType>
+  <EntityType Name="pengadaan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="JUMLAH_PENGADAAN" Type="Int32" />
+    <Property Name="TANGGAL_PENGADAAN" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="permintaan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_PERMINTAAN" Type="Int32" />
+    <Property Name="ID_KARYAWAN" Type="Int32" />
+    <Property Name="TANGGAL_PERMINTAAN" Type="DateTime" Precision="0" />
+    <Property Name="JUMLAH_PERMINTAAN" Type="Int32" />
+    <Property Name="STATUS_PERMINTAAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="apd" Relationship="Self.FK__permintaa__id_ap__4CA06362" FromRole="permintaan" ToRole="apd" />
+    <NavigationProperty Name="karyawan" Relationship="Self.FK__permintaa__id_ka__4D94879B" FromRole="permintaan" ToRole="karyawan" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="unit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAMA_UNIT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="karyawans" Relationship="Self.FK__karyawan__id_uni__45F365D3" FromRole="unit" ToRole="karyawan" />
+    <NavigationProperty Name="users" Relationship="Self.FK__users__id_unit__4222D4EF" FromRole="unit" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAMA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FOTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ID_UNIT" Type="Int32" />
+    <NavigationProperty Name="karyawans" Relationship="Self.FK__karyawan__id_use__44FF419A" FromRole="users" ToRole="karyawan" />
+    <NavigationProperty Name="unit" Relationship="Self.FK__users__id_unit__4222D4EF" FromRole="users" ToRole="unit" />
+  </EntityType>
+  <Association Name="FK__peminjama__id_ap__5165187F">
+    <End Role="apd" Type="Self.apd" Multiplicity="0..1" />
+    <End Role="peminjaman" Type="Self.peminjaman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="apd">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="peminjaman">
+        <PropertyRef Name="ID_APD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__penerimaa__id_ap__48CFD27E">
+    <End Role="apd" Type="Self.apd" Multiplicity="0..1" />
+    <End Role="penerimaan" Type="Self.penerimaan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="apd">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="penerimaan">
+        <PropertyRef Name="ID_APD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permintaa__id_ap__4CA06362">
+    <End Role="apd" Type="Self.apd" Multiplicity="0..1" />
+    <End Role="permintaan" Type="Self.permintaan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="apd">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="permintaan">
+        <PropertyRef Name="ID_PERMINTAAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__karyawan__id_uni__45F365D3">
+    <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+    <End Role="karyawan" Type="Self.karyawan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="karyawan">
+        <PropertyRef Name="ID_UNIT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__karyawan__id_use__44FF419A">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="karyawan" Type="Self.karyawan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="karyawan">
+        <PropertyRef Name="ID_USERS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__peminjama__id_ka__5070F446">
+    <End Role="karyawan" Type="Self.karyawan" Multiplicity="0..1" />
+    <End Role="peminjaman" Type="Self.peminjaman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="karyawan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="peminjaman">
+        <PropertyRef Name="ID_KARYAWAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__penerimaa__id_ka__49C3F6B7">
+    <End Role="karyawan" Type="Self.karyawan" Multiplicity="0..1" />
+    <End Role="penerimaan" Type="Self.penerimaan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="karyawan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="penerimaan">
+        <PropertyRef Name="ID_KARYAWAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permintaa__id_ka__4D94879B">
+    <End Role="karyawan" Type="Self.karyawan" Multiplicity="0..1" />
+    <End Role="permintaan" Type="Self.permintaan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="karyawan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="permintaan">
+        <PropertyRef Name="ID_KARYAWAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__id_unit__4222D4EF">
+    <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+    <End Role="users" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="ID_UNIT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="lifetime_apdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="apds" EntityType="Self.apd" />
+    <EntitySet Name="karyawans" EntityType="Self.karyawan" />
+    <EntitySet Name="peminjamen" EntityType="Self.peminjaman" />
+    <EntitySet Name="penerimaans" EntityType="Self.penerimaan" />
+    <EntitySet Name="pengadaans" EntityType="Self.pengadaan" />
+    <EntitySet Name="permintaans" EntityType="Self.permintaan" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="units" EntityType="Self.unit" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK__peminjama__id_ap__5165187F" Association="Self.FK__peminjama__id_ap__5165187F">
+      <End Role="apd" EntitySet="apds" />
+      <End Role="peminjaman" EntitySet="peminjamen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__penerimaa__id_ap__48CFD27E" Association="Self.FK__penerimaa__id_ap__48CFD27E">
+      <End Role="apd" EntitySet="apds" />
+      <End Role="penerimaan" EntitySet="penerimaans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permintaa__id_ap__4CA06362" Association="Self.FK__permintaa__id_ap__4CA06362">
+      <End Role="apd" EntitySet="apds" />
+      <End Role="permintaan" EntitySet="permintaans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__karyawan__id_uni__45F365D3" Association="Self.FK__karyawan__id_uni__45F365D3">
+      <End Role="unit" EntitySet="units" />
+      <End Role="karyawan" EntitySet="karyawans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__karyawan__id_use__44FF419A" Association="Self.FK__karyawan__id_use__44FF419A">
+      <End Role="users" EntitySet="users" />
+      <End Role="karyawan" EntitySet="karyawans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__peminjama__id_ka__5070F446" Association="Self.FK__peminjama__id_ka__5070F446">
+      <End Role="karyawan" EntitySet="karyawans" />
+      <End Role="peminjaman" EntitySet="peminjamen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__penerimaa__id_ka__49C3F6B7" Association="Self.FK__penerimaa__id_ka__49C3F6B7">
+      <End Role="karyawan" EntitySet="karyawans" />
+      <End Role="penerimaan" EntitySet="penerimaans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permintaa__id_ka__4D94879B" Association="Self.FK__permintaa__id_ka__4D94879B">
+      <End Role="karyawan" EntitySet="karyawans" />
+      <End Role="permintaan" EntitySet="permintaans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__id_unit__4222D4EF" Association="Self.FK__users__id_unit__4222D4EF">
+      <End Role="unit" EntitySet="units" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(lifetime_apdModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(lifetime_apdModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

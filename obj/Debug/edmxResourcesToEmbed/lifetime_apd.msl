@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lifetime_apdModelStoreContainer" CdmEntityContainer="lifetime_apdEntities">
+    <EntitySetMapping Name="apds">
+      <EntityTypeMapping TypeName="lifetime_apdModel.apd">
+        <MappingFragment StoreEntitySet="apd">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAMA_APD" ColumnName="NAMA_APD" />
+          <ScalarProperty Name="GAMBAR_APD" ColumnName="GAMBAR_APD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="karyawans">
+      <EntityTypeMapping TypeName="lifetime_apdModel.karyawan">
+        <MappingFragment StoreEntitySet="karyawan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_USERS" ColumnName="ID_USERS" />
+          <ScalarProperty Name="ID_UNIT" ColumnName="ID_UNIT" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="JABATAN" ColumnName="JABATAN" />
+          <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+          <ScalarProperty Name="TANGGAL_LAHIR" ColumnName="TANGGAL_LAHIR" />
+          <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+          <ScalarProperty Name="STATUS_PENERIMAAN" ColumnName="STATUS_PENERIMAAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="peminjamen">
+      <EntityTypeMapping TypeName="lifetime_apdModel.peminjaman">
+        <MappingFragment StoreEntitySet="peminjaman">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_KARYAWAN" ColumnName="ID_KARYAWAN" />
+          <ScalarProperty Name="ID_APD" ColumnName="ID_APD" />
+          <ScalarProperty Name="TANGGAL_PINJAM" ColumnName="TANGGAL_PINJAM" />
+          <ScalarProperty Name="TANGGAL_KEMBALI" ColumnName="TANGGAL_KEMBALI" />
+          <ScalarProperty Name="JUMLAH" ColumnName="JUMLAH" />
+          <ScalarProperty Name="STATUS_PEMINJAMAN" ColumnName="STATUS PEMINJAMAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="penerimaans">
+      <EntityTypeMapping TypeName="lifetime_apdModel.penerimaan">
+        <MappingFragment StoreEntitySet="penerimaan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_APD" ColumnName="ID_APD" />
+          <ScalarProperty Name="ID_KARYAWAN" ColumnName="ID_KARYAWAN" />
+          <ScalarProperty Name="TANGGAL_PENERIMAAN" ColumnName="TANGGAL_PENERIMAAN" />
+          <ScalarProperty Name="TOTAL_PENERIMAAN" ColumnName="TOTAL_PENERIMAAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pengadaans">
+      <EntityTypeMapping TypeName="lifetime_apdModel.pengadaan">
+        <MappingFragment StoreEntitySet="pengadaan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JUMLAH_PENGADAAN" ColumnName="JUMLAH_PENGADAAN" />
+          <ScalarProperty Name="TANGGAL_PENGADAAN" ColumnName="TANGGAL_PENGADAAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permintaans">
+      <EntityTypeMapping TypeName="lifetime_apdModel.permintaan">
+        <MappingFragment StoreEntitySet="permintaan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_PERMINTAAN" ColumnName="ID_PERMINTAAN" />
+          <ScalarProperty Name="ID_KARYAWAN" ColumnName="ID_KARYAWAN" />
+          <ScalarProperty Name="TANGGAL_PERMINTAAN" ColumnName="TANGGAL_PERMINTAAN" />
+          <ScalarProperty Name="JUMLAH_PERMINTAAN" ColumnName="JUMLAH_PERMINTAAN" />
+          <ScalarProperty Name="STATUS_PERMINTAAN" ColumnName="STATUS_PERMINTAAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="lifetime_apdModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="units">
+      <EntityTypeMapping TypeName="lifetime_apdModel.unit">
+        <MappingFragment StoreEntitySet="unit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAMA_UNIT" ColumnName="NAMA_UNIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="lifetime_apdModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+          <ScalarProperty Name="ID_UNIT" ColumnName="ID_UNIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="lifetime_apdModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="lifetime_apdModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="lifetime_apdModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="lifetime_apdModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="lifetime_apdModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="lifetime_apdModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="lifetime_apdModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="lifetime_apdModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="lifetime_apdModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

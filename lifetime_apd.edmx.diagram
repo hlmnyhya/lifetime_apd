@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="285901217dd84b8e930151d101cad48f" Name="Diagram1">
+        <EntityTypeShape EntityType="lifetime_apdModel.apd" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.karyawan" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.peminjaman" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.penerimaan" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.pengadaan" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.permintaan" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.unit" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="lifetime_apdModel.user" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="lifetime_apdModel.FK__peminjama__id_ap__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__penerimaa__id_ap__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__permintaa__id_ap__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__karyawan__id_uni__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__karyawan__id_use__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__peminjama__id_ka__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__penerimaa__id_ka__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__permintaa__id_ka__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="lifetime_apdModel.FK__users__id_unit__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

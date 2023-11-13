@@ -1,0 +1,62 @@
+﻿@model lifetime_apd.apd
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Dashboard", "Dashboard", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Data Master
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Item APD", "Index", "Apd")</li>
+                        <li>@Html.ActionLink("Data Karyawan", "Index", "Karyawan")</li>
+                        <li>@Html.ActionLink("Data Unit", "Index", "Unit")</li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Data Pengadaan APD", "Index", "Pengadaan")</li>
+                <li>@Html.ActionLink("Data Penerimaan APD", "Index", "Penerimaan")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h2>Details</h2>
+
+<div>
+    <h4>apd</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAMA_APD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAMA_APD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GAMBAR_APD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GAMBAR_APD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

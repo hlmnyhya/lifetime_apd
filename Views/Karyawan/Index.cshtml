@@ -1,0 +1,110 @@
+﻿@model IEnumerable<lifetime_apd.karyawan>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Dashboard", "Dashboard", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Data Master
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Item APD", "Index", "Apd")</li>
+                        <li>@Html.ActionLink("Data Karyawan", "Index", "Karyawan")</li>
+                        <li>@Html.ActionLink("Data Unit", "Index", "Unit")</li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Data Pengadaan APD", "Index", "Pengadaan")</li>
+                <li>@Html.ActionLink("Data Penerimaan APD", "Index", "Penerimaan")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h2>Data Karyawan</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAMA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JABATAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JENIS_KELAMIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TANGGAL_LAHIR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ALAMAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STATUS_PENERIMAAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unit.NAMA_UNIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.NAMA)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAMA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JABATAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JENIS_KELAMIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TANGGAL_LAHIR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ALAMAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STATUS_PENERIMAAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unit.NAMA_UNIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.NAMA)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
