@@ -1,4 +1,4 @@
-﻿@model lifetime_apd.apd
+﻿@model lifetime_apd.permintaan
 
 @{
     ViewBag.Title = "Edit";
@@ -36,29 +36,54 @@
 </div>
 <h2>Edit</h2>
 
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>apd</h4>
+        <h4>permintaan</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NAMA_APD, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ID_PERMINTAAN, "ID_PERMINTAAN", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NAMA_APD, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NAMA_APD, "", new { @class = "text-danger" })
+                @Html.DropDownList("ID_PERMINTAAN", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_PERMINTAAN, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GAMBAR_APD, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ID_KARYAWAN, "ID_KARYAWAN", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GAMBAR_APD, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GAMBAR_APD, "", new { @class = "text-danger" })
+                @Html.DropDownList("ID_KARYAWAN", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_KARYAWAN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TANGGAL_PERMINTAAN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TANGGAL_PERMINTAAN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TANGGAL_PERMINTAAN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JUMLAH_PERMINTAAN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.JUMLAH_PERMINTAAN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.JUMLAH_PERMINTAAN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STATUS_PERMINTAAN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.STATUS_PERMINTAAN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.STATUS_PERMINTAAN, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -73,3 +98,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

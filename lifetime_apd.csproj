@@ -136,9 +136,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KaryawanController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PeminjamanController.cs" />
     <Compile Include="Controllers\PenerimaanController.cs" />
     <Compile Include="Controllers\PengadaanController.cs" />
+    <Compile Include="Controllers\PermintaanController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +274,21 @@
     <Content Include="Views\Penerimaan\Details.cshtml" />
     <Content Include="Views\Penerimaan\Edit.cshtml" />
     <Content Include="Views\Penerimaan\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Peminjaman\Create.cshtml" />
+    <Content Include="Views\Peminjaman\Delete.cshtml" />
+    <Content Include="Views\Peminjaman\Details.cshtml" />
+    <Content Include="Views\Peminjaman\Edit.cshtml" />
+    <Content Include="Views\Peminjaman\Index.cshtml" />
+    <Content Include="Views\Permintaan\Create.cshtml" />
+    <Content Include="Views\Permintaan\Delete.cshtml" />
+    <Content Include="Views\Permintaan\Details.cshtml" />
+    <Content Include="Views\Permintaan\Edit.cshtml" />
+    <Content Include="Views\Permintaan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
