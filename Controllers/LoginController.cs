@@ -49,5 +49,9 @@ namespace lifetime_apd.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
