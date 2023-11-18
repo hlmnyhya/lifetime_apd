@@ -1,0 +1,74 @@
+﻿@model lifetime_apd.peminjaman
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>peminjaman</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TANGGAL_PINJAM)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TANGGAL_PINJAM)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TANGGAL_KEMBALI)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TANGGAL_KEMBALI)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JUMLAH)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JUMLAH)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.STATUS_PEMINJAMAN)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.STATUS_PEMINJAMAN)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.apd.NAMA_APD)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.apd.NAMA_APD)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.karyawan.NIP)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.karyawan.NIP)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

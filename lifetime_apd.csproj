@@ -136,8 +136,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KaryawanController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginUserController.cs" />
     <Compile Include="Controllers\PeminjamanController.cs" />
+    <Compile Include="Controllers\PeminjamanUserController.cs" />
     <Compile Include="Controllers\PenerimaanController.cs" />
+    <Compile Include="Controllers\PenerimaanUserController.cs" />
     <Compile Include="Controllers\PengadaanController.cs" />
     <Compile Include="Controllers\PermintaanController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
@@ -164,6 +167,7 @@
       <DependentUpon>lifetime_apd.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ApdModels.cs" />
+    <Compile Include="Models\DashboardModels.cs" />
     <Compile Include="Models\LoginModels.cs" />
     <Compile Include="peminjaman.cs">
       <DependentUpon>lifetime_apd.tt</DependentUpon>
@@ -2145,6 +2149,18 @@
     <Content Include="Theme\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\LoginUser.cshtml" />
+    <Content Include="Views\Home\DashboardUsers.cshtml" />
+    <Content Include="Views\PenerimaanUser\Create.cshtml" />
+    <Content Include="Views\PenerimaanUser\Delete.cshtml" />
+    <Content Include="Views\PenerimaanUser\Details.cshtml" />
+    <Content Include="Views\PenerimaanUser\Edit.cshtml" />
+    <Content Include="Views\PenerimaanUser\Index.cshtml" />
+    <Content Include="Views\PeminjamanUser\Create.cshtml" />
+    <Content Include="Views\PeminjamanUser\Delete.cshtml" />
+    <Content Include="Views\PeminjamanUser\Details.cshtml" />
+    <Content Include="Views\PeminjamanUser\Edit.cshtml" />
+    <Content Include="Views\PeminjamanUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

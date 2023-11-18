@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using lifetime_apd.Models;
 
 namespace lifetime_apd.Controllers
 {
-    public class LoginController : Controller
+    public class LoginUserController : Controller
     {
         private readonly lifetime_apdEntities dbContext = new lifetime_apdEntities();
 
         // GET: Login
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult LoginUser()
         {
             return View();
@@ -32,7 +26,7 @@ namespace lifetime_apd.Controllers
                 if (user != null)
                 {
                     // Jika username dan password sesuai, arahkan ke halaman lain
-                    return RedirectToAction("Dashboard", "Home");
+                    return RedirectToAction("DashboardUsers", "Home");
                 }
                 else
                 {
@@ -56,7 +50,9 @@ namespace lifetime_apd.Controllers
         }
         public ActionResult Logout()
         {
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "LoginUser");
         }
+
+
     }
 }

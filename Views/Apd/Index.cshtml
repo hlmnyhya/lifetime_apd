@@ -127,9 +127,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.NAMA_APD)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.GAMBAR_APD)
-                        </th>
                         <th></th>
                     </tr>
 
@@ -138,9 +135,6 @@
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.NAMA_APD)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GAMBAR_APD)
                             </td>
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" }) |
